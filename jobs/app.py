@@ -5,6 +5,7 @@ PATH = "db/jobs.sqlite"
 
 app = Flask(__name__)
 
+
 def open_connection():
     connection = getattr(g, '_connection', None)
     if connection == None:
@@ -12,6 +13,7 @@ def open_connection():
 
     connection.row_factory = sqlite3.Row
     return connection
+
 
 def execute_sql():
     connection = open_connection()
@@ -26,9 +28,6 @@ def execute_sql():
         results = cursor.fetchone() if single else cursor.fetchall()
     return results
 
-
-def close_connection():
-    
 
 
 @app.route('/')
