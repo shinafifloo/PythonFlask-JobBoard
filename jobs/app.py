@@ -50,5 +50,5 @@ def employer(employer_id):
 
 @app.route('/employer/<employer_id>/review', methods=('GET', 'POST'))
 def review(employer_id):
-
-    return render_template('review.html', employer_id=employer_id)
+    if request.method == 'POST':
+        return render_template('review.html', employer_id=employer_id)
